@@ -17,16 +17,21 @@ input_file = "src/data/input/hive-git-logs.txt"
 output_file = "src/data/output/parsed-logs.csv"
 
 with open(input_file, "r") as f:
-
-    current_bug_id = None
+    bug_id = None
+    output_content = "BugId,Filename\n"
     
     for line in f:
+        line = line.strip()
         # Capture new bug id
-        if "HIVE-" in line:
-            results = re.findall("HIVE-\d+", line) # should return array of 1
+        if results := re.findall("HIVE-\d+", line):
+            bug_id = results[0]
+            continue
+        # Add new line of "bugId,filename" for Java and C++ files
+        if line.endswith((".java", ".cpp", ".h")):
+            output_content += f"{bug_id},{line}\n"
 
-            if len(results) == 0:
-                print("EMPY", results)
+    # write output file
+    with open(output_file, "w") as of:
+        of.write(output_content)
 
-            current_bug_id = results[0] 
-            print(current_bug_id)
+    print("Logs successfully parsed!")
