@@ -17,18 +17,18 @@ input_file = "src/data/input/hive-git-logs.txt"
 output_file = "src/data/output/hive-issues-files.csv"
 
 with open(input_file, "r") as f:
-    bug_id = None
-    output_content = "BugId,Filename\n"
+    issue_id = None
+    output_content = "Issue,Filename\n"
     
     for line in f:
         line = line.strip()
         # Capture new bug id
         if results := re.findall("HIVE-\d+", line):
-            bug_id = results[0]
+            issue_id = results[0]
             continue
         # Add new line of "bugId,filename" for Java and C++ files
         if line.endswith((".java", ".cpp", ".h")):
-            output_content += f"{bug_id},{line}\n"
+            output_content += f"{issue_id},{line}\n"
 
     # write output file
     with open(output_file, "w") as of:
