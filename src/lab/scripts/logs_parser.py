@@ -14,7 +14,7 @@ Author: Henri Aidasso <ahenrij@gmail.com>
 import re
 
 input_file = "src/data/input/hive-git-logs.txt"
-output_file = "src/data/output/parsed-logs.csv"
+output_file = "src/data/output/hive-issues-files.csv"
 
 with open(input_file, "r") as f:
     bug_id = None
