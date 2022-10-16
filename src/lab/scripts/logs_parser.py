@@ -18,7 +18,7 @@ output_file = "src/data/output/hive-issues-files.csv"
 
 with open(input_file, "r") as f:
     issue_id = None
-    output_content = "Issue,Filename\n"
+    output_content = "Issue,File\n"
     
     for line in f:
         line = line.strip()
