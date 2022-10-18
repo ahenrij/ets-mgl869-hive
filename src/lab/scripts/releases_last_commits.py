@@ -3,7 +3,7 @@ identified release version of hive.
 
 Run this script in the parent folder of the cloned hive project.
 
-python releases_last_commits.py > releases_last_commits.csv
+python releases_last_commits.py > releases-last-commits.csv
 
 The output file is put in the data/output folder of the current project.
 
