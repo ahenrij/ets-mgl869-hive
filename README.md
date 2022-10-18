@@ -9,3 +9,4 @@
 ```bash 
 git log --name-only --pretty=oneline > hive-git-logs.txt
 ```
+- [Released versions dates](https://hive.apache.org/downloads.html) used to get the latest commit before releasing each version.
