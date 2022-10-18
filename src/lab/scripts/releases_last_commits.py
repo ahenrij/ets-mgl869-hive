@@ -33,13 +33,13 @@ releases_dates = {
     "2.3.7": "2020-04-18",
     "2.3.8": "2021-01-17",
     "2.3.9": "2021-06-09",
-    "4.0.0": "2022-03-30",
     "3.1.3": "2022-04-08"
 }
 
 releases_dates = dict(sorted(releases_dates.items()))
 
 for k in releases_dates:
+    _ = subprocess.run(["git", "checkout", f"branch-{k[:-2]}"], capture_output=True, text=True).stdout
     last_commit = subprocess.run(["git", "log", f"--before='{releases_dates[k]}'", "--pretty=oneline", "-1"], capture_output=True, text=True).stdout
     last_commit_hash = last_commit.split(" ")[0]
     print(f"{k},{last_commit_hash}")
