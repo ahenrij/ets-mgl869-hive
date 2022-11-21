@@ -2,6 +2,17 @@
 
 Bugs prediction at file level on the [apache/hive](https://github.com/apache/hive) project.
 
+## Requirements
+
+- [Poetry](https://python-poetry.org/)
+- Python 3.10
+
+To install dependencies
+
+```bash
+poetry install
+```
+
 ## Resources
 
 Here are the resources used to collect files metrics for training prediction models.
@@ -11,7 +22,7 @@ Here are the resources used to collect files metrics for training prediction mod
 - Notebooks
 - Python
 - Git
-- [Understand](https://www.scitools.com/) 
+- [Understand](https://www.scitools.com/)
 
 ### Data inputs
 
